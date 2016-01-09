@@ -14,6 +14,7 @@
 		C19C31F61C37088E00BA47FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19C31F41C37088E00BA47FE /* LaunchScreen.storyboard */; };
 		C19C32011C37088E00BA47FE /* LionsAndTigersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19C32001C37088E00BA47FE /* LionsAndTigersTests.swift */; };
 		C19C320C1C37088E00BA47FE /* LionsAndTigersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19C320B1C37088E00BA47FE /* LionsAndTigersUITests.swift */; };
+		C19C321A1C370D9500BA47FE /* Tiger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19C32191C370D9500BA47FE /* Tiger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C19C32071C37088E00BA47FE /* LionsAndTigersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LionsAndTigersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19C320B1C37088E00BA47FE /* LionsAndTigersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LionsAndTigersUITests.swift; sourceTree = "<group>"; };
 		C19C320D1C37088E00BA47FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C19C32191C370D9500BA47FE /* Tiger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tiger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				C19C31EB1C37088E00BA47FE /* AppDelegate.swift */,
 				C19C31ED1C37088E00BA47FE /* ViewController.swift */,
+				C19C32191C370D9500BA47FE /* Tiger.swift */,
 				C19C31EF1C37088E00BA47FE /* Main.storyboard */,
 				C19C31F21C37088E00BA47FE /* Assets.xcassets */,
 				C19C31F41C37088E00BA47FE /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C19C31EE1C37088E00BA47FE /* ViewController.swift in Sources */,
+				C19C321A1C370D9500BA47FE /* Tiger.swift in Sources */,
 				C19C31EC1C37088E00BA47FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,10 +406,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LionsAndTigers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.edu.LionsAndTigers;
+				PRODUCT_BUNDLE_IDENTIFIER = neilHouselander.LionsAndTigers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -413,10 +420,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LionsAndTigers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.edu.LionsAndTigers;
+				PRODUCT_BUNDLE_IDENTIFIER = neilHouselander.LionsAndTigers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -487,6 +497,7 @@
 				C19C32121C37088E00BA47FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C19C32131C37088E00BA47FE /* Build configuration list for PBXNativeTarget "LionsAndTigersTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +506,7 @@
 				C19C32151C37088E00BA47FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C19C32161C37088E00BA47FE /* Build configuration list for PBXNativeTarget "LionsAndTigersUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +515,7 @@
 				C19C32181C37088E00BA47FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
