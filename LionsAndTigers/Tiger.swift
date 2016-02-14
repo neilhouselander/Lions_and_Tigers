@@ -42,14 +42,12 @@ struct Tiger {
         return newAge
     }
     
+    //generate a random fact from the array of facts
     func randomTigerFact() ->String {
         let randomFact = ["The tiger is the biggest species in the cat family", "Tigers can reach a length of 3.3 meters", "A group of tigers is known as a 'streak' or 'ambush'"]
         let randomFactIndex = Int(arc4random_uniform(UInt32(randomFact.count)))
-        print(randomFact[randomFactIndex])
-        
         return randomFact[randomFactIndex]
-        
-        
+  
     }
     
 }

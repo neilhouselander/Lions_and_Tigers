@@ -18,16 +18,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var factLabel: UILabel!
     
     //set up arrays - 1 for tiger structs so array type is [Tiger]
-    //the other for the animation options 
     
     var myTigersArray: [Tiger] = []
-    var animationOptionsListArray: [UIViewAnimationOptions] = []
+    var lionsArray:[Lion] = []
+    var lionCubArray : [LionCub] = []
+    
+    var currentAnimal = (species: "Tiger", index: 0)
     
     var currentTiger = 0
-    
-    var currentFact = ""
-    
-    var aFact = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +37,7 @@ class ViewController: UIViewController {
         myTiger.name = "Tigger"
         myTiger.breed = "Bengal"
         myTiger.image = UIImage(named: "BengalTiger.jpg")
-        
         myTiger.age = myTiger.ageInTigerYearsFromAge(myTiger.age)
-        
-        
         
         //myTiger.chuff()
         
@@ -55,7 +50,6 @@ class ViewController: UIViewController {
         secondTiger.name = "Tigress"
         secondTiger.breed = "Indochinese Tiger"
         secondTiger.image = UIImage(named: "IndochineseTiger.jpg")
-        
         secondTiger.age = secondTiger.ageInTigerYearsFromAge(secondTiger.age)
         
         var thirdTiger = Tiger()
@@ -63,7 +57,6 @@ class ViewController: UIViewController {
         thirdTiger.name = "Jacob"
         thirdTiger.breed = "Malayan Tiger"
         thirdTiger.image = UIImage(named: "MalayanTiger.jpg")
-        
         thirdTiger.age = thirdTiger.ageInTigerYearsFromAge(thirdTiger.age)
         
         var fourthTiger = Tiger()
@@ -71,14 +64,44 @@ class ViewController: UIViewController {
         fourthTiger.name = "Spar"
         fourthTiger.breed = "Siberian Tiger"
         fourthTiger.image = UIImage(named: "SiberianTiger.jpg")
-        
         fourthTiger.age = fourthTiger.ageInTigerYearsFromAge(fourthTiger.age)
         
         self.myTigersArray += [secondTiger, thirdTiger, fourthTiger]
         
-        //set up the animations array with all the different types
+        //set up the lion instances
         
-        self.animationOptionsListArray += [UIViewAnimationOptions.TransitionCurlUp, UIViewAnimationOptions.TransitionFlipFromBottom, UIViewAnimationOptions.TransitionFlipFromLeft, UIViewAnimationOptions.TransitionFlipFromRight, UIViewAnimationOptions.TransitionFlipFromTop, UIViewAnimationOptions.TransitionCrossDissolve]
+        let lion = Lion()
+        lion.age = 4
+        lion.isAlphaMale = false
+        lion.image = UIImage(named: "Lion.jpg")
+        lion.name = "Mustafa"
+        lion.subSpecies = "West African"
+        
+        let lioness = Lion()
+        lioness.age = 3
+        lioness.isAlphaMale = false
+        lioness.image = UIImage(named: "Lioness.jpeg")
+        lioness.name = "Sarabi"
+        lioness.subSpecies = "Barbary"
+        
+        self.lionsArray += [lion, lioness]
+        
+        let lionCub = LionCub()
+        lionCub.age = 1
+        lionCub.name = "Simba"
+        lionCub.isAlphaMale = true
+        lionCub.image = UIImage(named: "LionCub1.jpg")
+        lionCub.subSpecies = "Masai"
+        
+        let femaleLionCub = LionCub()
+        femaleLionCub.age = 1
+        femaleLionCub.name = "Nala"
+        femaleLionCub.isAlphaMale = false
+        femaleLionCub.image = UIImage(named: "LionCub2.jpeg")
+        femaleLionCub.subSpecies = "Transvaal"
+        
+        lionCubArray += [lionCub, femaleLionCub]
+        
         
         //set up the initial screen
         
@@ -88,7 +111,15 @@ class ViewController: UIViewController {
         self.breedLabel.text = myTigersArray[currentTiger].breed
         self.factLabel.text = myTigersArray[currentTiger].randomTigerFact()
         
-        myTiger.chuffANumberOfTimes(5, isLoud: false)
+        myTiger.chuffANumberOfTimes(1, isLoud: true)
+        
+        lion.roar()
+        lioness.roar()
+        lionCub.roar()
+        lionCub.rubLionCubBelly()
+        
+        lion.changeToAlphaMale()
+        print("is lion alphaMale? :\(lion.isAlphaMale)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,74 +133,74 @@ class ViewController: UIViewController {
         //hide the webView if its visible
         self.webView.hidden = true
         
-        //get a random number to index into the tiger array
-        var randomIndex = Int(arc4random_uniform(UInt32(self.myTigersArray.count)))
+        self.updateAnimal()
+        self.updateViewWithCurrentAnimal()
+  
+   }
+    
+    //helper functions
+    //whats the current animal - switch to the other and pick a random one from the array
+    
+    func updateAnimal() {
+        switch currentAnimal {
+        case ("Tiger", _):
+            let randomIndex = Int(arc4random_uniform(UInt32(lionsArray.count)))
+            currentAnimal = ("Lion", randomIndex)
+            
+        case ("Lion Cub", _):
+            let randomIndex = Int(arc4random_uniform(UInt32(myTigersArray.count)))
+            currentAnimal = ("Tiger", randomIndex)
+            
+        default:
+            
+            let randomIndex = Int(arc4random_uniform(UInt32(lionCubArray.count)))
+            currentAnimal = ("Lion Cub", randomIndex)
+         }
         
-        //checking in the console if indexs match or not
-        print("current tiger: \(self.currentTiger) Random tiger: \(randomIndex)")
-     
+    }
+    //set the view to generated lion/tiger
+    func updateViewWithCurrentAnimal() {
         
-//        //detect duplicates ie current tiger (index number) is the same as the new random index number generated
-//        if randomIndex == currentTiger {
-//            randomIndex++
-//            print("DUPLICATE RANDOM INDEX INCREASED BY 1")
-//        }
+        UIView.transitionWithView(self.view, duration: 2, options: UIViewAnimationOptions.TransitionFlipFromLeft,
+            animations: {
         
-        //try detecting duplicates with a while loop
-        while randomIndex == self.currentTiger {
-              randomIndex = Int(arc4random_uniform(UInt32(self.myTigersArray.count)))
-            print("Duplicate detected new random tiger number: \(randomIndex)")
+        if self.currentAnimal.species == "Tiger" {
+            let tiger = self.myTigersArray[self.currentAnimal.index]
+             
+            self.myImageView.image = tiger.image
+            self.nameLabel.text = tiger.name
+            self.ageLabel.text = "\(tiger.age)"
+            self.breedLabel.text = tiger.breed
+            self.factLabel.text = tiger.randomTigerFact()
+                        
         }
-        
-        //set the random tiger variable ready to call and populate the view items
-        let randomTiger = self.myTigersArray[randomIndex]
-        print("Index: \(randomIndex) :\(randomTiger.name)")
-        
-        //get a random number to choose an animation type
-        let anotherRandomIndex = Int(arc4random_uniform(UInt32(animationOptionsListArray.count)))
-       
-        
-        //put the colours right so white text doesn't get lost in the snow !
-        if randomIndex == 3 {
-            self.nameLabel.textColor = UIColor.blackColor()
-            self.ageLabel.textColor = UIColor.blackColor()
-            self.breedLabel.textColor = UIColor.blackColor()
-            self.factLabel.textColor = UIColor.blackColor()
+        else if self.currentAnimal.species == "Lion" {
+            
+            let lion = self.lionsArray[self.currentAnimal.index]
+            self.myImageView.image = lion.image
+            self.nameLabel.text = lion.name
+            self.ageLabel.text = "\(lion.age)"
+            self.breedLabel.text = lion.subSpecies
+            self.factLabel.text = lion.randomFact()
             
         }
         else {
-            self.nameLabel.textColor = UIColor.whiteColor()
-            self.ageLabel.textColor = UIColor.whiteColor()
-            self.breedLabel.textColor = UIColor.whiteColor()
-            self.factLabel.textColor = UIColor.whiteColor()
+            let smallCub = self.lionCubArray[self.currentAnimal.index]
+            self.myImageView.image = smallCub.image
+            self.nameLabel.text = smallCub.name
+            self.ageLabel.text = "\(smallCub.age)"
+            self.breedLabel.text = smallCub.subSpecies
+            self.factLabel.text = smallCub.randomFact()
+                       
         }
-        
-        //set up the view transitions and add the tiger based on the random index selected
-        UIView.transitionWithView(self.view, duration: 2, options: self.animationOptionsListArray[anotherRandomIndex],
-            animations: {
-                self.myImageView.image = randomTiger.image
-                self.nameLabel.text = randomTiger.name
-                self.ageLabel.text = "\(randomTiger.age)"
-                self.breedLabel.text = randomTiger.breed
-                randomTiger.chuffANumberOfTimes(5, isLoud: false)
-                
-                //assigned the randomfact function to a local so I can check if same as current view fact. If it is then function called again
-                self.aFact = randomTiger.randomTigerFact()
-                
-                while self.aFact == self.currentFact {
-                    print("fact duplicate - re-randomized")
-                    self.aFact = randomTiger.randomTigerFact()
-                }
-                self.factLabel.text = self.aFact
-              },
+       
+            },
             completion: {
                 (finished: Bool) -> () in})
         
-        self.currentTiger = randomIndex
-        self.currentFact = aFact
-     
-
-   }
+        
+        
+    }
     
     @IBAction func playVideoButtonPressed(sender: UIBarButtonItem) {
         self.webView.hidden = false

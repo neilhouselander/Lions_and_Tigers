@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1283FAB1C70E1B600E8DF38 /* LionCub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1283FAA1C70E1B600E8DF38 /* LionCub.swift */; };
 		C19C31EC1C37088E00BA47FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19C31EB1C37088E00BA47FE /* AppDelegate.swift */; };
 		C19C31EE1C37088E00BA47FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19C31ED1C37088E00BA47FE /* ViewController.swift */; };
 		C19C31F11C37088E00BA47FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19C31EF1C37088E00BA47FE /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 		C19C32011C37088E00BA47FE /* LionsAndTigersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19C32001C37088E00BA47FE /* LionsAndTigersTests.swift */; };
 		C19C320C1C37088E00BA47FE /* LionsAndTigersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19C320B1C37088E00BA47FE /* LionsAndTigersUITests.swift */; };
 		C19C321A1C370D9500BA47FE /* Tiger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19C32191C370D9500BA47FE /* Tiger.swift */; };
+		C1D17E021C63C8710059DFB1 /* Lion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D17E011C63C8710059DFB1 /* Lion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C1283FAA1C70E1B600E8DF38 /* LionCub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LionCub.swift; path = ../LionCub.swift; sourceTree = "<group>"; };
 		C19C31E81C37088E00BA47FE /* LionsAndTigers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionsAndTigers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19C31EB1C37088E00BA47FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C19C31ED1C37088E00BA47FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		C19C320B1C37088E00BA47FE /* LionsAndTigersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LionsAndTigersUITests.swift; sourceTree = "<group>"; };
 		C19C320D1C37088E00BA47FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C19C32191C370D9500BA47FE /* Tiger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tiger.swift; sourceTree = "<group>"; };
+		C1D17E011C63C8710059DFB1 /* Lion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +105,9 @@
 			children = (
 				C19C31EB1C37088E00BA47FE /* AppDelegate.swift */,
 				C19C31ED1C37088E00BA47FE /* ViewController.swift */,
+				C1D17E011C63C8710059DFB1 /* Lion.swift */,
 				C19C32191C370D9500BA47FE /* Tiger.swift */,
+				C1283FAA1C70E1B600E8DF38 /* LionCub.swift */,
 				C19C31EF1C37088E00BA47FE /* Main.storyboard */,
 				C19C31F21C37088E00BA47FE /* Assets.xcassets */,
 				C19C31F41C37088E00BA47FE /* LaunchScreen.storyboard */,
@@ -265,6 +271,8 @@
 				C19C31EE1C37088E00BA47FE /* ViewController.swift in Sources */,
 				C19C321A1C370D9500BA47FE /* Tiger.swift in Sources */,
 				C19C31EC1C37088E00BA47FE /* AppDelegate.swift in Sources */,
+				C1283FAB1C70E1B600E8DF38 /* LionCub.swift in Sources */,
+				C1D17E021C63C8710059DFB1 /* Lion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
